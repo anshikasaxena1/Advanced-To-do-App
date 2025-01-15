@@ -1,28 +1,50 @@
-import React, { useState } from 'react';
-import TaskList from './components/TaskList';
-import TaskForm from './components/TaskForm';
-import WeatherInfo from './components/WeatherInfo';
+# TaskMaster - Modern Task Management App
 
-const App = () => {
-  const [tasks, setTasks] = useState([]);
-  const [city, setCity] = useState('New York');
+A sleek and intuitive task management application built with React, Redux, and Tailwind CSS. TaskMaster helps you stay organized and productive with a clean interface and powerful features.
 
-  const addTask = (task) => {
-    setTasks([...tasks, { ...task, id: Date.now() }]);
-  };
+ **:: Integrated with OpenWeather API to know the weather of the city**
 
-  const completeTask = (id) => {
-    setTasks(tasks.map((task) => (task.id === id ? { ...task, completed: true } : task)));
-  };
+## ✨ Features
 
-  return (
-    <div className="p-8">
-      <h1 className="text-2xl font-bold mb-4">Advanced To-Do App</h1>
-      <WeatherInfo city={city} />
-      <TaskForm onAddTask={addTask} />
-      <TaskList tasks={tasks} onComplete={completeTask} />
-    </div>
-  );
-};
+- **Task Management**
+  - Create, edit and delete tasks
+  - Mark tasks as complete/incomplete
+  - Flag important tasks
+  - Add detailed notes to tasks
+  - Set due dates and reminders
 
-export default App;
+- **Smart Organization**
+  - Tells the weather of the city
+  - Task categorization
+  - Priority flags
+  - Due date tracking
+  - Recurring task options
+
+- **User Experience**
+  - Clean, modern UI
+  - Dark/light theme support
+  - Responsive design
+  - Task statistics dashboard
+  - Intuitive sidebar navigation
+
+- **Data Persistence**
+  - Local storage integration
+  - User authentication
+  - Secure data handling
+
+
+## 📸 Screenshots 
+
+
+![TaskMaster Dashboard](./Screenshots/home-light.PNG)
+*Main dashboard view showing task list and statistics*
+
+![Task Details](./Screenshots/taskdetail.PNG) 
+*Detailed task view with editing options*
+
+![Dark Theme](./Screenshots/home-dark.PNG)
+*Dark theme support for comfortable viewing*
+
+![Signup page](./Screenshots/signup-web.PNG)
+*Signup page*
+

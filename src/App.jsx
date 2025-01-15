@@ -1,14 +1,26 @@
-import { BrowserRouter } from "react-router-dom";
-import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './store';
+import Home from './pages/Home';
+import Login from "./components/Login"
+
+import Signup from './components/Signup';
+import { ThemeProvider } from './context/ThemeContext';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-    </BrowserRouter>
+    <Provider store={store}>
+      <ThemeProvider>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        </Router>
+      </ThemeProvider>
+    </Provider>
   );
 }
 
